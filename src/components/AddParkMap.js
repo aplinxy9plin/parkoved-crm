@@ -22,10 +22,16 @@ export default class Index extends Component {
     };
   }
   componentDidMount() {
-    this.setState({
-      marker1: this.props.marker1,
-      marker2: this.props.marker2
-    })
+    if(this.props.marker1 && this.props.marker2){
+      this.setState({
+        marker1: this.props.marker1,
+        marker2: this.props.marker2
+      })
+    }else{
+      this.setState({
+        marker2: this.props.marker2
+      })
+    }
     console.log('govno:', this.state.lat+0.427995202432247)
   }
   
@@ -87,22 +93,26 @@ export default class Index extends Component {
             position={{ lat: this.state.marker1.lat, lng: this.state.marker1.lng }}
             draggable={true}
           />
-          <Marker
-            onDragEnd={(value) => {
-              this.props.onChange(this.state.marker1 ,{
-                lat: value.latLng.lat(),
-                lng: value.latLng.lng()
-              })
-              this.setState({
-                marker2: {
-                  lat: value.latLng.lat(),
-                  lng: value.latLng.lng()
-                }
-              })
-            }}
-            position={{ lat: this.state.marker2.lat, lng: this.state.marker2.lng }}
-            draggable={true}
-          />
+          {
+            this.state.marker2 && (
+              <Marker
+                onDragEnd={(value) => {
+                  this.props.onChange(this.state.marker1 ,{
+                    lat: value.latLng.lat(),
+                    lng: value.latLng.lng()
+                  })
+                  this.setState({
+                    marker2: {
+                      lat: value.latLng.lat(),
+                      lng: value.latLng.lng()
+                    }
+                  })
+                }}
+                position={{ lat: this.state.marker2.lat, lng: this.state.marker2.lng }}
+                draggable={true}
+              />
+            )
+          }
         </GoogleMap>
       </LoadScript>
     );
