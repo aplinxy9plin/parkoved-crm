@@ -30,6 +30,7 @@ export class Events extends Component {
         "images": this.state.images.filter((item) => item !== 'null'),
         "icon": this.state.icon,
         "coordinates": this.state.marker1,
+        "date": this.state.date 
       })
     })
     .then(response => response.json())
@@ -162,6 +163,7 @@ export class Events extends Component {
             <Table.Row>
               <Table.HeaderCell>Название</Table.HeaderCell>
               <Table.HeaderCell>Описание</Table.HeaderCell>
+              <Table.HeaderCell>Дата</Table.HeaderCell>
               <Table.HeaderCell>Картинки</Table.HeaderCell>
               <Table.HeaderCell>Координаты</Table.HeaderCell>
             </Table.Row>
@@ -174,6 +176,7 @@ export class Events extends Component {
                   <Table.Row>
                     <Table.Cell>{item.name}</Table.Cell>
                     <Table.Cell>{item.description}</Table.Cell>
+                    <Table.Cell>{item.date}</Table.Cell>
                     <Table.Cell>{item.images.filter((img) => img).map((img) => <img src={img} width={100} />)}</Table.Cell>
                     <Table.Cell>{item.coordinates.lat},{item.coordinates.lng}</Table.Cell>
                   </Table.Row>

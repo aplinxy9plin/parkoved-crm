@@ -300,11 +300,11 @@ export class EditMap extends Component {
                     </Form.Field>
                     <Form.Field>
                       <label>Дополнительные ограничения</label>
-                      <textarea type='number'
+                      <textarea
                         value={this.state.restDescription}
                         onChange={(e) => {
                           this.setState({
-                            restDescription: e.currentTarget.value.length > 3 ? e.currentTarget.value.slice(0,2) : e.currentTarget.value
+                            restDescription: e.currentTarget.value
                           })
                         }}
                       />

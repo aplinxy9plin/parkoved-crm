@@ -61,6 +61,7 @@ export class Login extends Component {
       if(data.type === 'ok'){
         console.log(data)
         localStorage.setItem("user_id", data.id)
+        window.location.href="/"
       }else{
         alert("Проверьте поля.")
       }
