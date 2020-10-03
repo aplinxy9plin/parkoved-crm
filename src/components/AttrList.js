@@ -80,7 +80,10 @@ export class AttrList extends Component {
                       <Button id={item._id} onClick={this.generateQR} color="olive">Генерировать</Button>
                     </Table.Cell>
                     <Table.Cell>
-                      <Button color="red">Удалить</Button>
+                      <Button color="red" onClick={() => {
+                        fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/removeItem/"+item._id)
+                        .then(() => window.location.reload())
+                      }}>Удалить</Button>
                     </Table.Cell>
                   </Table.Row>
                 )
