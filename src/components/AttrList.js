@@ -7,7 +7,7 @@ export class AttrList extends Component {
     items: null
   }
   componentDidMount() {
-    fetch("http://192.168.43.113:3000/park/getItems/"+localStorage.getItem("user_id"))
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/getItems/"+localStorage.getItem("user_id"))
     .then(response => response.json())
     .then(data => {
       console.log(data)

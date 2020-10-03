@@ -25,13 +25,13 @@ export default class Index extends Component {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('id');
     console.log(myParam)
-    fetch("http://192.168.43.113:3000/park/get/"+myParam)
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/get/"+myParam)
     .then(response => response.json())
     .then(data => {
       console.log(data)
       if(data.type === 'ok'){
         const center = this.getCenter(data.result.map.coordinates)
-        fetch("http://192.168.43.113:3000/park/getItems/"+myParam)
+        fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/getItems/"+myParam)
         .then(response => response.json())
         .then(data => {
           console.log(data)

@@ -14,7 +14,7 @@ export class Login extends Component {
   }
   
   submit = () => {
-    fetch("http://192.168.43.113:3000/park/login", {
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/login", {
       "method": "POST",
       "headers": {
         "content-type": "application/json"

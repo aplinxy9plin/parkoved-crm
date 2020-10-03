@@ -12,13 +12,13 @@ export class Events extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.43.113:3000/park/getEvents")
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/getEvents")
     .then(response => response.json())
     .then(data => this.setState({ events: data.result }))
   }
 
   submit = () => {
-    fetch("http://192.168.43.113:3000/park/addEvent", {
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/addEvent", {
       "method": "POST",
       "headers": {
         "content-type": "application/json"

@@ -12,6 +12,12 @@ import PanelSettings from '../components/PanelSettings'
 export default class Dashboard extends Component {
   state = { activeItem: 'Панель управления', currentPanel: <PanelSettings /> }
 
+  componentDidMount() {
+   if(!localStorage.getItem("user_id")){
+    window.location.href = "/addpark"
+   } 
+  }
+
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name })
     switch (name) {

@@ -7,7 +7,7 @@ export class PanelSetttings extends Component {
   }
   
   componentDidMount() {
-    fetch("http://192.168.43.113:3000/park/getItems/"+localStorage.getItem("user_id"))
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/getItems/"+localStorage.getItem("user_id"))
     .then(response => response.json())
     .then(data => {
       this.setState({ 
@@ -44,7 +44,7 @@ export class PanelSetttings extends Component {
           })
       })
     })
-    fetch("http://192.168.43.113:3000/users/mostage")
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/users/mostage")
     .then(response => response.json())
     .then(data => {
       this.setState({ mostage: data.result })

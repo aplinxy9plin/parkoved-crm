@@ -19,13 +19,13 @@ export class EditMap extends Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.43.113:3000/park/get/"+localStorage.getItem("user_id"))
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/get/"+localStorage.getItem("user_id"))
     .then(response => response.json())
     .then(data => {
       console.log(data)
       if(data.type === 'ok'){
         const center = this.getCenter(data.result.map.coordinates)
-        fetch("http://192.168.43.113:3000/park/getItems/"+localStorage.getItem("user_id"))
+        fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/getItems/"+localStorage.getItem("user_id"))
         .then(response => response.json())
         .then(data => {
           console.log(data)
@@ -91,7 +91,7 @@ export class EditMap extends Component {
  }
 
  findIcon = e => {
-  fetch(`http://192.168.43.113:3000/park/iconList?search=${e.currentTarget.value}`)
+  fetch(`https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/iconList?search=${e.currentTarget.value}`)
   .then(response => response.json())
   .then(data => {
     if(data.type === 'ok'){
@@ -103,7 +103,7 @@ export class EditMap extends Component {
  }
 
   submit = () => {
-    fetch("http://192.168.43.113:3000/park/addItem", {
+    fetch("https://cors-anywhere.herokuapp.com/http://45.67.57.90:3000/park/addItem", {
       "method": "POST",
       "headers": {
         "content-type": "application/json"
